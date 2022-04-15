@@ -21,7 +21,7 @@ namespace CSharp_9_and_10_Performance
         [Benchmark]
         public int SwitchWithoutPatternMatching()
         {
-            return NewFeatures.SwitchPatternMatching(Parameters);
+            return OldFeatures.SwitchWithoutPatternMatching(Parameters);
         }
 
         public static void Run()
