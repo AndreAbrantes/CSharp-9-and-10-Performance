@@ -21,7 +21,8 @@ namespace CSharp_9_and_10_Performance
         [Benchmark]
         public int SwitchWithoutPatternMatching()
         {
-            return OldFeatures.SwitchWithoutPatternMatching(Parameters);
+            return OldFeatures.SwitchWithoutPatternMatching_ReadOnlySpan(Parameters);
+            //return OldFeatures.SwitchWithoutPatternMatching_Span(Parameters);
         }
 
         public static void Run()
@@ -38,7 +39,7 @@ namespace CSharp_9_and_10_Performance
                 Console.WriteLine(string.Join(",", values));
 
                 var newFeaturesResult = NewFeatures.SwitchPatternMatching(values);
-                var oldFeaturesResult = OldFeatures.SwitchWithoutPatternMatching(values);
+                var oldFeaturesResult = OldFeatures.SwitchWithoutPatternMatching_Span(values);
 
                 Console.WriteLine("Results for New Features");
                 Console.WriteLine(newFeaturesResult);
