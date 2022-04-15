@@ -1,6 +1,6 @@
 ﻿namespace CSharp_9_and_10_Performance
 {
-    internal class OldFeatures
+    public class OldFeatures
     {
         public static int SwitchWithoutPatternMatching(int[] values)
         {

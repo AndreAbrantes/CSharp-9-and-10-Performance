@@ -1,16 +1,16 @@
-﻿namespace CSharp_9_and_10_Performance
+﻿namespace CSharp_9_and_10_Performance;
+
+public class NewFeatures
 {
-    internal class NewFeatures
+    public static int SwitchPatternMatching(int[] values)
     {
-        public static int SwitchPatternMatching(int[] values)
+        return values switch
         {
-            return values switch
-            {
-                [int first] => first,
-                [_, int second] => second,
-                [_, .. int[] lastOnes] => lastOnes.Sum(),
-                _ => 0
-            };
-        }
+            [int first] => first,
+            [_, int second] => second,
+            [_, .. int[] lastOnes] => lastOnes.Sum(),
+            _ => 0
+        };
     }
 }
+

@@ -1,7 +1,29 @@
-﻿namespace CSharp_9_and_10_Performance
+﻿using BenchmarkDotNet.Attributes;
+
+namespace CSharp_9_and_10_Performance
 {
-    internal class BenchmarkTests
+    [MemoryDiagnoser(false)]
+    public class BenchmarkTests
     {
+        [Params(
+                //new int[0],
+                //new[] { 1 },
+                //new[] { 1, 2 },
+                new[] { 1, 2, 3 })]
+        public int[] Parameters { get; set; } = Array.Empty<int>();
+        
+        [Benchmark]
+        public int SwitchPatternMatching()
+        {
+            return NewFeatures.SwitchPatternMatching(Parameters);
+        }
+
+        [Benchmark]
+        public int SwitchWithoutPatternMatching()
+        {
+            return NewFeatures.SwitchPatternMatching(Parameters);
+        }
+
         public static void Run()
         {
             int[][] matrix = new int[][] {
